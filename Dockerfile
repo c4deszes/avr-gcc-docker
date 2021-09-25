@@ -3,6 +3,8 @@ FROM ubuntu
 LABEL version="1.0.0"
 LABEL description="Image for building AVR embedded projects"
 
+ENV TZ=Europe/Paris
+
 # Install common tools
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y \

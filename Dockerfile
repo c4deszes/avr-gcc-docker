@@ -3,6 +3,8 @@ FROM ubuntu
 LABEL version="1.0.0"
 LABEL description="Image for building AVR embedded projects"
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 # Install common tools
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y \
@@ -12,7 +14,7 @@ RUN apt-get install -y \
       wget
 
 # Install CMake
-ARG cmake_version="3.20.2"
+ARG cmake_version="3.21.3"
 ARG cmake_platform="linux-x86_64"
 
 RUN mkdir /opt/cmake

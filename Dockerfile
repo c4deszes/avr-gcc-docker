@@ -12,7 +12,7 @@ RUN apt-get install -y \
       wget
 
 # Install CMake
-ARG cmake_version="3.20.2"
+ARG cmake_version="3.21.3"
 ARG cmake_platform="linux-x86_64"
 
 RUN mkdir /opt/cmake

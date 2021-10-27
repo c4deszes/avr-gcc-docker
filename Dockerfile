@@ -8,18 +8,10 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Install common tools
 RUN apk --no-cache add \
       alpine-sdk \
+      bash \
       git \
       curl \
       wget
-
-# Install CMake
-ARG cmake_version="3.21.3"
-ARG cmake_platform="linux-x86_64"
-
-RUN mkdir /opt/cmake
-RUN wget https://github.com/Kitware/CMake/releases/download/v${cmake_version}/cmake-${cmake_version}-${cmake_platform}.sh
-RUN sh cmake-${cmake_version}-${cmake_platform}.sh --prefix=/opt/cmake --skip-license
-ENV PATH "$PATH:/opt/cmake/bin"
 
 # Install Python
 RUN apk add --update python3 py3-pip
@@ -27,6 +19,10 @@ RUN apk add --update python3 py3-pip
 # Install AVR GCC
 RUN apk --no-cache add \
       binutils \
+      make \
+      cmake \
       gcc-avr \
       avr-libc \
       avrdude
+
+ENTRYPOINT [ "/bin/bash" ]

@@ -22,7 +22,7 @@ RUN sh cmake-${cmake_version}-${cmake_platform}.sh --prefix=/opt/cmake --skip-li
 ENV PATH "$PATH:/opt/cmake/bin"
 
 # Install Python
-RUN apk --no-cache add python3.9
+RUN apk add --update python3 py3-pip
 
 # Install AVR GCC
 RUN apk --no-cache add \

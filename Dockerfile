@@ -7,7 +7,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # Install common tools
 RUN apk --no-cache add \
-      build-essential \
+      alpine-sdk \
       git \
       curl \
       wget

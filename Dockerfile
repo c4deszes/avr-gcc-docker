@@ -28,14 +28,14 @@ RUN apk --no-cache add \
       avrdude
 
 WORKDIR /usr/tmp
-RUN git clone https://github.com/stevenj/avr-libc3.git
+RUN git clone --single-branch --branch install_io_headers https://github.com/rwirth/avr-libc3.git
 WORKDIR /usr/tmp/avr-libc3
-RUN export PREFIX=/usr/avr
-RUN export PATH=$PATH:$PREFIX/bin
-RUN ./bootstrap
-RUN ./configure --prefix=$PREFIX --build=`./config.guess` --host=avr
-RUN make
-RUN env "PATH=$PATH" make install
+ENV PREFIX=/usr
+ENV PATH=$PATH:$PREFIX/bin
+RUN ./bootstrap && \
+    ./configure --prefix=$PREFIX --build=`./config.guess` --host=avr && \
+    make && \
+    env "PATH=$PATH" make install
 
 WORKDIR /usr/tmp
 

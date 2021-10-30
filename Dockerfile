@@ -30,7 +30,7 @@ RUN apk --no-cache add \
 WORKDIR /usr/tmp
 RUN git clone https://github.com/stevenj/avr-libc3.git
 WORKDIR /usr/tmp/avr-libc3
-RUN export PREFIX=/usr/local/avr
+RUN export PREFIX=/usr/avr
 RUN export PATH=$PATH:$PREFIX/bin
 RUN ./bootstrap
 RUN ./configure --prefix=$PREFIX --build=`./config.guess` --host=avr

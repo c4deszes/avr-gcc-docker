@@ -19,4 +19,4 @@ jobs:
       - name: Test
         working-directory: tests
         run: |
-          docker run -it local /bin/sh compile.sh
+          docker run -v $PWD:/usr/work -it local build.sh

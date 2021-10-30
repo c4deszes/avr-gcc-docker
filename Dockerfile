@@ -1,6 +1,6 @@
 FROM alpine
 
-LABEL version="1.2.0"
+LABEL version="1.2.1"
 LABEL description="Image for building AVR embedded projects"
 
 ARG DEBIAN_FRONTEND=noninteractive

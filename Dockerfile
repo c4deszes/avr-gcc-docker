@@ -42,7 +42,7 @@ RUN apk add boost-dev libtool
 RUN wget http://srecord.sourceforge.net/srecord-1.64.tar.gz
 RUN tar -xf srecord-1.64.tar.gz
 WORKDIR /usr/tmp/srecord-1.64
-RUN ./configure --without-gcrypt && make && make install-bin install-libdir install-include
+RUN ./configure --without-gcrypt && make all-bin && make install-bin install-libdir install-include
 
 # Install Atmega DFP
 # RUN wget http://packs.download.atmel.com/Atmel.ATmega_DFP.1.7.374.atpack
